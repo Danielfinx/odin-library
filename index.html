@@ -10,8 +10,10 @@
 </head>
 
 <body>
-    <h1>Odin Library</h1>
-    <div><button class="addBookBtn">New Book</button></div>
+    <div class="headerContainer">
+        <h1 class="header">Odin Library</h1>
+        <div class="addContainer"><button class="addBookBtn">New Book</button></div>
+    </div>
     <div class="darkerBackground item_hide"></div>
     <div id="form-container" class="item_hide">
         <h2 class="formHeader">Add New Book</h2>
@@ -40,7 +42,7 @@
                             <label for="pages">Pages</label>
                         </th>
                         <td>
-                            <input type="number" id="pages" name="pages" min="20" max="1000" required>
+                            <input type="number" id="pages" name="pages" min="20" max="1500" required>
                         </td>
                     </tr>
                     <tr class="formSection">
@@ -65,7 +67,7 @@
                 </tbody>
                 <tfoot></tfoot>
             </table>
-            <button type="submit" id="submitBtn">Añadir</button>
+            <button type="submit" id="submitBtn">Add Book</button>
         </form>
     </div>
     <div id="library"></div>

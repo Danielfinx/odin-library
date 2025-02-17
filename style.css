@@ -1,19 +1,46 @@
 :root {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-
   --main-color: rgb(45, 31, 4);
   --main-color-light: rgb(195, 174, 132);
   --secondary-color: rgb(180, 175, 105);
   --tertiary-color: rgb(213, 196, 154);
 }
 
+html,
 body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
   font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: var(--main-color);
   background-color: var(--tertiary-color);
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  color: var(--main-color-light);
+  padding: 10px;
+  /* border-radius: 20px; */
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.header {
+  font-style: italic;
+  font-size: 40px;
+}
+
+.addContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 80px;
+  position: absolute;
+  right: 0;
 }
 
 #form-container {
@@ -47,6 +74,8 @@ table {
   width: 100%;
   height: 45%;
   margin-bottom: 30px;
+  border-collapse: collapse; /* Elimina la separación entre bordes */
+  border-spacing: 0; /* Elimina el espacio entre celdas */
 }
 
 th > label {
@@ -59,12 +88,13 @@ th > label {
 #pages,
 #rating {
   all: unset;
-  width: 80%;
+  width: 100%;
+  height: 100%;
   margin: auto;
-  border-bottom: 3px solid var(--main-color);
   background-color: var(--main-color-light);
-  border-radius: 10px 10px 0 0;
-  padding: 5px;
+  /* padding: 5px; */
+  /* border-bottom: 3px solid var(--main-color);
+  border-radius: 10px 10px 0 0; */
 }
 
 .formHeader {
@@ -76,7 +106,8 @@ th > label {
   margin: 10px;
 }
 
-#submitBtn {
+#submitBtn,
+.addBookBtn {
   all: unset;
   width: 100px;
   height: 40px;
@@ -90,7 +121,8 @@ th > label {
   border-radius: 20px;
 }
 
-#submitBtn:hover {
+#submitBtn:hover,
+.addBookBtn:hover {
   background-color: var(--main-color-light);
   color: var(--main-color);
   border: 3px solid var(--main-color);
@@ -116,20 +148,55 @@ th > label {
   display: none;
 }
 
-.addBookBtn {
-  margin-bottom: 20px;
+th {
+  background-color: var(--main-color);
+  color: var(--main-color-light);
+  border: 5px solid var(--main-color);
 }
 
-.bookCard {
-  padding: 5px;
+td {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--secondary-color);
+  border: 5px solid var(--main-color);
+  /* margin: 10px; */
 }
 
-.bookInfo {
-  margin-right: 30px;
+.bookRead {
+  width: 100px;
+}
+
+.read {
+  color: rgb(24, 126, 24);
+}
+
+.notRead {
+  color: rgb(144, 42, 42);
+}
+
+.btnBox {
+  width: 300px;
 }
 
 .deleteBtn,
-.readBtn,
-.bookInfo {
-  display: inline;
+.readBtn {
+  all: unset;
+  font-size: 14px;
+  width: 120px;
+  height: 40px;
+  color: var(--main-color-light);
+  font-weight: bold;
+  border: 4px solid var(--main-color-light);
+  background-color: var(--main-color);
+  border-radius: 20px;
+}
+
+.deleteBtn:hover,
+.readBtn:hover {
+  background-color: var(--main-color-light);
+  color: var(--main-color);
+  border: 4px solid var(--main-color);
+  cursor: pointer;
 }

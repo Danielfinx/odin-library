@@ -3,6 +3,21 @@ const addBtn = document.querySelector(".addBookBtn");
 const darkerBackground = document.querySelector(".darkerBackground");
 const formContainer = document.getElementById("form-container");
 const addBookForm = document.getElementById("addBookForm");
+
+const libraryTable = document.createElement("table");
+libraryTable.classList.add("libraryTable");
+libraryTable.innerHTML = `
+<thead>
+  <th>Title</th>
+  <th>Author</th>
+  <th>Pages</th>
+  <th>Read</th>
+  <th>Actions</th>
+</thead><tfoot></tfoot>`;
+const tableBody = document.createElement("tbody");
+libraryTable.appendChild(tableBody);
+library.appendChild(libraryTable);
+
 const myLibrary = [];
 
 //variable in charge of designating the IDs
@@ -26,11 +41,28 @@ function Book(id, title, author, pages, read) {
 //after being called by addBookToLibrary()
 
 function renderBook(book) {
-  const bookCard = document.createElement("div");
+  const bookCard = document.createElement("tr");
   bookCard.classList.add("bookCard");
 
-  const bookInfo = document.createElement("p");
-  bookInfo.classList.add("bookInfo");
+  const bookTitle = document.createElement("td");
+  bookTitle.classList.add("bookTitle");
+  bookTitle.textContent = book.title;
+
+  const bookAuthor = document.createElement("td");
+  bookAuthor.classList.add("bookAuthor");
+  bookAuthor.textContent = book.author;
+
+  const bookPages = document.createElement("td");
+  bookPages.classList.add("bookPages");
+  bookPages.textContent = book.pages;
+
+  const bookRead = document.createElement("td");
+  bookRead.classList.add("bookRead");
+  bookRead.textContent = book.read ? "Read" : "Not Read";
+  bookRead.classList.add(book.read ? "read" : "notRead");
+
+  const btnBox = document.createElement("td");
+  btnBox.classList.add("btnBox");
 
   const bookDeleteBtn = document.createElement("button");
   bookDeleteBtn.classList.add("deleteBtn");
@@ -38,10 +70,8 @@ function renderBook(book) {
   const bookReadBtn = document.createElement("button");
   bookReadBtn.classList.add("readBtn");
 
-  bookInfo.textContent = `info: ${book.info()}`;
-
   bookDeleteBtn.textContent = "Delete Book";
-  bookReadBtn.textContent = "Read Book";
+  bookReadBtn.textContent = "Read Toggle";
 
   bookDeleteBtn.addEventListener("click", () => {
     const index = myLibrary.findIndex((item) => item.id == book.id);
@@ -52,13 +82,19 @@ function renderBook(book) {
   bookReadBtn.addEventListener("click", () => {
     const index = myLibrary.findIndex((item) => item.id == book.id);
     myLibrary[index].read = !myLibrary[index].read;
-    bookInfo.textContent = `Info: ${book.info()}`;
+    bookRead.textContent = `${book.read ? "Read" : "Not Read"}`;
+    bookRead.classList.toggle("read");
+    bookRead.classList.toggle("notRead");
   });
 
-  bookCard.appendChild(bookInfo);
-  bookCard.appendChild(bookDeleteBtn);
-  bookCard.appendChild(bookReadBtn);
-  library.appendChild(bookCard);
+  bookCard.appendChild(bookTitle);
+  bookCard.appendChild(bookAuthor);
+  bookCard.appendChild(bookPages);
+  bookCard.appendChild(bookRead);
+  btnBox.appendChild(bookReadBtn);
+  btnBox.appendChild(bookDeleteBtn);
+  bookCard.appendChild(btnBox);
+  tableBody.appendChild(bookCard);
 }
 
 function displayForm() {
@@ -92,16 +128,8 @@ addBookForm.addEventListener("submit", (event) => {
     addBookForm.elements["readStatus"].value === "true" ? true : false;
   // const rating = addBookForm.elements["rating"].value;
 
-  // console.log("Title:", title);
-  // console.log("Author:", author);
-  // console.log("Pages:", pages);
-  // console.log("Read:", read);
-  // console.log("Rating:", rating);
-
   addBookToLibrary(title, author, pages, read);
   displayForm();
-
-  // Aquí puedes hacer lo que necesites con los datos
 });
 
 function addBookToLibrary(title, author, pages, read) {
@@ -111,8 +139,8 @@ function addBookToLibrary(title, author, pages, read) {
   renderBook(newBook);
 }
 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
-addBookToLibrary("Harry Potter", "Rowling", 595, true);
-addBookToLibrary("Star Wars", "George Lucas", 295, true);
-addBookToLibrary("Canción Hielo y Fuego", "George R.R. Martin", 895, false);
-addBookToLibrary("JoJos", "Araki", 795, true);
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 288, false);
+addBookToLibrary("Harry Potter", "J.K. Rowling", 256, true);
+addBookToLibrary("Don Quijote", "Miguel de Cervantes", 1352, true);
+addBookToLibrary("A Song of Ice and Fire", "George R.R. Martin", 896, false);
+addBookToLibrary("The Odyssey", "Homer", 426, false);
