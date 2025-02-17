@@ -2,6 +2,18 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
+  --main-color: rgb(45, 31, 4);
+  --main-color-light: rgb(195, 174, 132);
+  --secondary-color: rgb(180, 175, 105);
+  --tertiary-color: rgb(213, 196, 154);
+}
+
+body {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: var(--main-color);
+  background-color: var(--tertiary-color);
 }
 
 #form-container {
@@ -9,13 +21,80 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /* Centra el elemento */
-  width: 60vw;
-  height: 90vh;
+  height: 80vh;
+  width: 40vw;
+  min-width: 400px;
   z-index: 2;
-  background-color: cadetblue;
+  background-color: var(--secondary-color);
   justify-content: start;
   align-items: center;
   flex-direction: column;
+
+  border: 4px solid var(--main-color);
+  border-radius: 5%;
+}
+
+#addBookForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+}
+
+table {
+  width: 100%;
+  height: 45%;
+  margin-bottom: 30px;
+}
+
+th > label {
+  font-size: large;
+  font-weight: bold;
+}
+
+#title,
+#author,
+#pages,
+#rating {
+  all: unset;
+  width: 80%;
+  margin: auto;
+  border-bottom: 3px solid var(--main-color);
+  background-color: var(--main-color-light);
+  border-radius: 10px 10px 0 0;
+  padding: 5px;
+}
+
+.formHeader {
+  margin-bottom: 60px;
+}
+
+.formSection {
+  padding: 5px;
+  margin: 10px;
+}
+
+#submitBtn {
+  all: unset;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-color-light);
+  font-weight: bold;
+  border: 3px solid var(--main-color-light);
+  background-color: var(--main-color);
+  border-radius: 20px;
+}
+
+#submitBtn:hover {
+  background-color: var(--main-color-light);
+  color: var(--main-color);
+  border: 3px solid var(--main-color);
+  cursor: pointer;
 }
 
 .darkerBackground {

@@ -71,7 +71,7 @@ function displayForm() {
   addBookForm.elements["author"].value = "";
   addBookForm.elements["pages"].value = "";
   addBookForm.elements["readStatus"].value = "";
-  addBookForm.elements["rating"].value = "";
+  // addBookForm.elements["rating"].value = "";
 }
 
 darkerBackground.addEventListener("click", () => {
@@ -79,11 +79,6 @@ darkerBackground.addEventListener("click", () => {
 });
 
 addBtn.addEventListener("click", () => {
-  //   const title = prompt("Title: ");
-  //   const author = prompt("Author: ");
-  //   const pages = prompt("Pages: ");
-  //   const read = false;
-  //   addBookToLibrary(title, author, pages, read);
   displayForm();
 });
 
@@ -95,13 +90,13 @@ addBookForm.addEventListener("submit", (event) => {
   const pages = addBookForm.elements["pages"].value;
   const read =
     addBookForm.elements["readStatus"].value === "true" ? true : false;
-  const rating = addBookForm.elements["rating"].value;
+  // const rating = addBookForm.elements["rating"].value;
 
-  console.log("Title:", title);
-  console.log("Author:", author);
-  console.log("Pages:", pages);
-  console.log("Read:", read);
-  console.log("Rating:", rating);
+  // console.log("Title:", title);
+  // console.log("Author:", author);
+  // console.log("Pages:", pages);
+  // console.log("Read:", read);
+  // console.log("Rating:", rating);
 
   addBookToLibrary(title, author, pages, read);
   displayForm();
