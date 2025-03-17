@@ -98,11 +98,42 @@ function renderBook(book) {
 }
 
 function displayForm() {
-  formContainer.classList.toggle("item_hide");
-  formContainer.classList.toggle("item_flex");
-  darkerBackground.classList.toggle("item_hide");
-  darkerBackground.classList.toggle("item_flex");
+  if (formContainer.classList.contains("item_hide")) {
+    formContainer.style.display = "flex"; // Ensures that the element is in the flow with display: flex
+    formContainer.style.opacity = "0"; // Prepares the initial state
+    darkerBackground.style.display = "flex";
+    darkerBackground.style.opacity = "0";
 
+    setTimeout(() => {
+      formContainer.classList.remove("item_hide");
+      darkerBackground.classList.remove("item_hide");
+
+      formContainer.classList.add("item_flex", "fade-in");
+      darkerBackground.classList.add("item_flex", "fade-in");
+
+      // Clears inline styles after animation
+      setTimeout(() => {
+        formContainer.style.display = "";
+        formContainer.style.opacity = "";
+        darkerBackground.style.display = "";
+        darkerBackground.style.opacity = "";
+      }, 0); // Time equal to CSS transition time
+    }, 0);
+  } else {
+    formContainer.classList.remove("fade-in");
+    formContainer.classList.add("fade-out");
+    darkerBackground.classList.remove("fade-in");
+    darkerBackground.classList.add("fade-out");
+
+    setTimeout(() => {
+      formContainer.classList.remove("item_flex");
+      formContainer.classList.add("item_hide");
+      darkerBackground.classList.remove("item_flex");
+      darkerBackground.classList.add("item_hide");
+    }, 500); // Time equal to CSS transition time
+  }
+
+  // Clear form fields
   addBookForm.elements["title"].value = "";
   addBookForm.elements["author"].value = "";
   addBookForm.elements["pages"].value = "";

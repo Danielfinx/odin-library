@@ -59,6 +59,10 @@ body {
 
   border: 4px solid var(--main-color);
   border-radius: 5%;
+
+  -webkit-box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.75);
 }
 
 #addBookForm {
@@ -140,12 +144,23 @@ th > label {
   background-color: rgba(0, 0, 0, 40%);
 }
 
-.item_flex {
-  display: flex;
-}
-
 .item_hide {
   display: none;
+  opacity: 0;
+}
+
+.item_flex {
+  display: flex;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
 }
 
 th {
