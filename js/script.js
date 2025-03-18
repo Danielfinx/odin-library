@@ -99,25 +99,15 @@ function renderBook(book) {
 
 function displayForm() {
   if (formContainer.classList.contains("item_hide")) {
-    formContainer.style.display = "flex"; // Ensures that the element is in the flow with display: flex
-    formContainer.style.opacity = "0"; // Prepares the initial state
-    darkerBackground.style.display = "flex";
-    darkerBackground.style.opacity = "0";
-
+    formContainer.classList.remove("item_hide");
+    darkerBackground.classList.remove("item_hide");
+    formContainer.classList.add("item_flex");
+    darkerBackground.classList.add("item_flex");
     setTimeout(() => {
-      formContainer.classList.remove("item_hide");
-      darkerBackground.classList.remove("item_hide");
-
-      formContainer.classList.add("item_flex", "fade-in");
-      darkerBackground.classList.add("item_flex", "fade-in");
-
-      // Clears inline styles after animation
-      setTimeout(() => {
-        formContainer.style.display = "";
-        formContainer.style.opacity = "";
-        darkerBackground.style.display = "";
-        darkerBackground.style.opacity = "";
-      }, 0); // Time equal to CSS transition time
+      formContainer.classList.remove("fade-out");
+      darkerBackground.classList.remove("fade-out");
+      formContainer.classList.add("fade-in");
+      darkerBackground.classList.add("fade-in");
     }, 0);
   } else {
     formContainer.classList.remove("fade-in");

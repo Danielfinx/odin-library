@@ -6,71 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin Library</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
 </head>
 
 <body>
-    <div class="headerContainer">
-        <h1 class="header">Odin Library</h1>
-        <div class="addContainer"><button class="addBookBtn">New Book</button></div>
-    </div>
-    <div class="darkerBackground item_hide fade-out"></div>
-    <div id="form-container" class="item_hide fade-out">
-        <h2 class="formHeader">Add New Book</h2>
-        <form id="addBookForm" method="post">
-            <table>
-                <thead>
-                </thead>
-                <tbody>
-                    <tr class="formSection">
-                        <th>
-                            <label for="title">Title</label>
-                        </th>
-                        <td>
-                            <input type="text" id="title" name="title" required>
-                        </td>
-                    <tr class="formSection">
-                        <th>
-                            <label for="author">Author</label>
-                        </th>
-                        <td>
-                            <input type="text" id="author" name="author" required>
-                        </td>
-                    </tr>
-                    <tr class="formSection">
-                        <th>
-                            <label for="pages">Pages</label>
-                        </th>
-                        <td>
-                            <input type="number" id="pages" name="pages" min="20" max="1500" required>
-                        </td>
-                    </tr>
-                    <tr class="formSection">
-                        <th>
-                            <label>Read Status</label>
-                        </th>
-                        <td>
-                            <input type="radio" id="read" name="readStatus" value="true">
-                            <label for="read">Read</label>
-                            <input type="radio" id="notRead" name="readStatus" value="false" checked>
-                            <label for="notRead">Not Read</label>
-                        </td>
-                    </tr>
-                    <!-- <tr class="formSection">
-                        <th>
-                            <label for="rating">Rating</label>
-                        </th>
-                        <td>
-                            <input type="number" id="rating" name="rating" min="0" max="5">
-                        </td>
-                    </tr> -->
-                </tbody>
-                <tfoot></tfoot>
-            </table>
-            <button type="submit" id="submitBtn">Add Book</button>
-        </form>
-    </div>
-    <div id="library"></div>
+    <script src="./js/createBody.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
